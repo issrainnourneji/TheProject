@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>Ajouter un Rendez-vous</h2>
+  <form (ngSubmit)="addAppointment()">
+    <div class="form-group">
+      <label for="agentId">ID de l'Agent</label>
+      <input
+        type="number"
+        id="agentId"
+        [(ngModel)]="rendezv.agentId"
+        name="agentId"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="appointmentDate">Date et Heure</label>
+      <input
+        type="datetime-local"
+        id="appointmentDate"
+        [(ngModel)]="rendezv.appointmentDate"
+        name="appointmentDate"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="appointmentType">Type de Rendez-vous</label>
+      <select
+        id="appointmentType"
+        [(ngModel)]="rendezv.appointmentType"
+        name="appointmentType"
+        class="form-control"
+        required
+      >
+        <option value="VIDEO">Vidéo</option>
+        <option value="TELEPHONE">Téléphone</option>
+        <option value="SURPLACE">Sur place</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea
+        id="notes"
+        [(ngModel)]="rendezv.notes"
+        name="notes"
+        class="form-control"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Client</th>
+      <th>Agent</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointments">
+      <td *ngIf="appointment">{{ appointment.id }}</td>
+      <td *ngIf="appointment">{{ appointment.clientId }}</td>
+      <td *ngIf="appointment">{{ appointment.agentId }}</td>
+      <td *ngIf="appointment">{{ appointment.appointmentDate | date: 'short' }}</td>
+      <td *ngIf="appointment">{{ appointment.appointmentType }}</td>
+      <td *ngIf="appointment">
+        <span [ngClass]="{
+            'badge bg-warning': appointment.status === 'PENDING',
+            'badge bg-success': appointment.status === 'CONFIRMED',
+            'badge bg-danger': appointment.status === 'MODIFICATION'
+          }">
+          {{ appointment.status }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

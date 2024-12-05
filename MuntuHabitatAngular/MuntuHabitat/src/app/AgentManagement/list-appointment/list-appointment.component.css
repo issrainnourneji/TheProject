@@ -1,0 +1,17 @@
+.badge {
+  padding: 5px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.bg-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+.bg-success {
+  background-color: #28a745;
+  color: white;
+}
+.bg-danger {
+  background-color: #dc3545;
+  color: white;
+}

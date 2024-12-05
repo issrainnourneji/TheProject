@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Contrats de l'utilisateur</h2>
+
+  <div>
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="onUpload()">Uploader le contrat</button>
+  </div>
+
+  <div *ngIf="contracts.length > 0; else noContracts">
+    <ul>
+      <li *ngFor="let contract of contracts">
+        <span>{{ contract.fileName }}</span>
+        <a [href]="contract.fileUrl" download="{{ contract.fileName }}">Télécharger</a>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noContracts>
+    <p>Aucun contrat disponible.</p>
+  </ng-template>
+</div>
+<div>
+  <h2>Visualiser le contrat</h2>
+  <embed [src]="pdfUrl" type="application/pdf" width="100%" height="600px" *ngIf="pdfUrl" />
+</div>
+
+
+

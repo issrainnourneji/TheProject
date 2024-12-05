@@ -1,0 +1,106 @@
+.invoice-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+.title {
+  width: 100%;
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.invoice-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  width: calc(33.333% - 30px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.invoice-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.invoice-card h2 {
+  color: #193152;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.invoice-card p {
+  color: #4c8ec4;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.invoice-card p strong {
+  color: #193152;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #193152;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #4c8ec4;
+}
+
+.modal-header {
+  position: relative;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #193152;
+}
+
+.modal-body {
+  background-color: #efefef;
+}
+
+.modal-footer {
+  background-color: #f9f9f9;
+}
+
+.modal-footer button.btn-primary {
+  background-color: #4c8ec4;
+  border-color: #4c8ec4;
+}
+
+.modal-footer button.btn-primary:hover {
+  background-color: #193152;
+  border-color: #193152;
+}
+
+@media (max-width: 991px) {
+  .invoice-card {
+    width: calc(50% - 30px);
+  }
+}
+
+@media (max-width: 600px) {
+  .invoice-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+

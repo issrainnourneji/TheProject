@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="text-center">List of Users</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="!error && users.length === 0" class="alert alert-info">No users found.</div>
+  <div *ngIf="users.length > 0">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phoneNumber }}</td>
+          <td>{{ user.role }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

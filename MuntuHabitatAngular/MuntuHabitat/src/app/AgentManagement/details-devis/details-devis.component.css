@@ -1,0 +1,131 @@
+.devis-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  width: 100%;
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.devis-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+  width: 60%;
+  max-width: 800px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.devis-card:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.devis-card h3 {
+  color: #193152;
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #4c8ec4;
+  padding-bottom: 10px;
+}
+
+.devis-card p {
+  color: #4c8ec4;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.devis-card p strong {
+  color: #193152;
+}
+
+.modal-header {
+  background-color: #4c8ec4;
+  color: #ffffff;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.modal-header h5 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #193152;
+}
+
+.modal-body {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.form-group label {
+  color: #193152;
+  font-weight: bold;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modal-footer {
+  background-color: #f9f9f9;
+  padding: 15px;
+}
+
+.btn-secondary {
+  background-color: #193152;
+  border-color: #193152;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #4c8ec4;
+  border-color: #4c8ec4;
+}
+
+.btn-primary {
+  background-color: #4c8ec4;
+  border-color: #4c8ec4;
+}
+
+.btn-primary:hover {
+  background-color: #193152;
+  border-color: #193152;
+}
+
+@media (max-width: 768px) {
+  .devis-card {
+    width: 95%; 
+  }
+}
+
+@media (max-width: 576px) {
+  .devis-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,19 @@
+.profile {
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 9rem;
+  background-color: #efefef; /* Light gray */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #193152; /* Dark blue */
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}

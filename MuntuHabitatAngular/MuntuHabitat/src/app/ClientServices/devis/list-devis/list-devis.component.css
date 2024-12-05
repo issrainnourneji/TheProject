@@ -1,0 +1,101 @@
+.devis-list-container {
+  padding: 20px;
+}
+
+.devis-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.devis-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  width: calc(50% - 30px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.devis-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.devis-card h5 {
+  color: #193152;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.devis-card p {
+  color: #4c8ec4;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.devis-card p strong {
+  color: #193152;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #193152;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #4c8ec4;
+}
+
+.modal-header {
+  position: relative;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #193152;
+}
+
+.modal-body {
+  background-color: #efefef;
+}
+
+.modal-footer {
+  background-color: #f9f9f9;
+}
+
+.modal-footer button.btn-dark {
+  background-color: #4c8ec4;
+  border-color: #4c8ec4;
+}
+
+.modal-footer button.btn-dark:hover {
+  background-color: #193152;
+  border-color: #193152;
+}
+
+@media (max-width: 991px) {
+  .devis-card {
+    width: calc(50% - 30px);
+  }
+}
+
+@media (max-width: 600px) {
+  .devis-card {
+    width: 100%; 
+    margin: 10px 0;
+  }
+}

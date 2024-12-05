@@ -1,0 +1,19 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+h2 {
+  color: #193152;
+}
+
+button {
+  background-color: #4c8ec4;
+  border: none;
+}
+
+button:hover {
+  background-color: #193152;
+}
+
+

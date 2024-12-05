@@ -1,0 +1,40 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Client</th>
+      <th>Agent</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointments">
+      <td *ngIf="appointment">{{ appointment.id }}</td>
+      <td *ngIf="appointment">{{ appointment.clientId }}</td>
+      <td *ngIf="appointment">{{ appointment.agentId }}</td>
+      <td *ngIf="appointment">{{ appointment.appointmentDate | date: 'short' }}</td>
+      <td *ngIf="appointment">{{ appointment.appointmentType }}</td>
+      <td *ngIf="appointment">
+        <span [ngClass]="{
+            'badge bg-warning': appointment.status === 'PENDING',
+            'badge bg-success': appointment.status === 'CONFIRMED',
+            'badge bg-danger': appointment.status === 'MODIFICATION'
+          }">
+          {{ appointment.status }}
+        </span>
+      </td>
+      <td *ngIf="appointment">
+        <button *ngIf="appointment.status === 'PENDING'" (click)="confirmAppointment(appointment.id)" class="btn btn-success btn-sm">
+          Confirmer
+        </button>
+        <button *ngIf="appointment.status === 'PENDING'" (click)="confirmAppointment(appointment.id)" class="btn btn-success btn-sm">
+          Changer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,38 @@
+<div class="container devis-list-container">
+  <h1>Liste des Devis</h1>
+
+  <div class="devis-list">
+    <div class="devis-card" *ngFor="let devis of devisList" (click)="selectedDevis = devis; openDevisModal(content)">
+      <h5>{{ devis.numero }} - {{ devis.description }}</h5>
+      <p><strong>Montant Total:</strong> {{ devis.montantTotal }}€</p>
+      <p><strong>État:</strong> {{ devis.etat }}</p>
+    </div>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Détails du Devis</h5>
+      <button type="button" class="close-btn" (click)="modal.dismiss('Cross click')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="selectedDevis">
+        <p><strong>Numéro:</strong> {{ selectedDevis.numero }}</p>
+        <p><strong>Description:</strong> {{ selectedDevis.description }}</p>
+        <p><strong>Montant Total:</strong> {{ selectedDevis.montantTotal }}€</p>
+        <p><strong>État:</strong> {{ selectedDevis.etat }}</p>
+        <p><strong>Date de Création:</strong> {{ selectedDevis.dateCreation | date }}</p>
+        <p><strong>Validité:</strong> {{ selectedDevis.validite | date }}</p>
+        <p><strong>Conditions de Paiement:</strong> {{ selectedDevis.conditionsPaiement }}</p>
+        <p><strong>Montant HT:</strong> {{ selectedDevis.montantHT }}€</p>
+        <p><strong>Montant TTC:</strong> {{ selectedDevis.montantTTC }}€</p>
+        <p><strong>Taux TVA:</strong> {{ selectedDevis.tauxTVA }}%</p>
+        <p><strong>Date de Signature:</strong> {{ selectedDevis.dateSignature | date }}</p>
+        <p><strong>Signature Électronique:</strong> {{ selectedDevis.signatureElectronique ? 'Oui' : 'Non' }}</p>
+        <p><strong>Agent Responsable:</strong> {{ selectedDevis.agentResponsable }}</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-dark" (click)="modal.dismiss('Close click')">Fermer</button>
+    </div>
+  </ng-template>
+</div>

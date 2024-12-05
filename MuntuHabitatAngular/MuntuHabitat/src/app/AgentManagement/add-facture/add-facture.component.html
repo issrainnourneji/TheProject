@@ -1,0 +1,69 @@
+<div class="facture-container" *ngFor="let facture of factures; let i = index">
+  <div class="facture-header" (click)="toggleDetails(i)">
+    <h2>Facture N° {{ facture.numeroFacture }}</h2>
+    <p>Date d'émission : {{ facture.dateEmission | date }}</p>
+    <p>Total TTC : {{ facture.totalTTC | currency }}</p>
+  </div>
+  <div class="button-container">
+    <button class="toggle-button" (click)="toggleDetails(i)">
+      {{ factureDetailsVisible[i] ? 'Masquer les détails' : 'Afficher les détails' }}
+    </button>
+    <button class="download-button" (click)="downloadFacture(facture.numeroFacture)">
+      Télécharger
+    </button>
+  </div>
+  <div *ngIf="factureDetailsVisible[i]">
+    <div class="facture-details">
+      <div class="facture-vendeur">
+        <h3>Vendeur</h3>
+        <p><strong>{{ facture.nomVendeur }}</strong></p>
+        <p>{{ facture.adresseVendeur }}</p>
+        <p>Téléphone : {{ facture.telephoneVendeur }}</p>
+        <p>Email : {{ facture.emailVendeur }}</p>
+        <p>NIF : {{ facture.numeroIdentificationFiscale }}</p>
+      </div>
+
+      <div class="facture-client">
+        <h3>Client</h3>
+        <p><strong>{{ facture.nomClient }}</strong></p>
+        <p>{{ facture.adresseClient }}</p>
+        <p>Téléphone : {{ facture.telephoneClient }}</p>
+        <p>Email : {{ facture.emailClient }}</p>
+      </div>
+    </div>
+
+    <h3>Détails de la facture</h3>
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ligne of facture.lignesFacture">
+          <td>{{ ligne.descriptionProduit }}</td>
+          <td>{{ ligne.quantite }}</td>
+          <td>{{ ligne.prixUnitaire | currency }}</td>
+          <td>{{ ligne.montantTotal | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="facture-summary">
+      <p><strong>Sous-total :</strong> {{ facture.sousTotal | currency }}</p>
+      <p><strong>Taxes :</strong> {{ facture.taxe | currency }}</p>
+      <p class="total"><strong>Total TTC :</strong> {{ facture.totalTTC | currency }}</p>
+    </div>
+
+    <div class="facture-payment">
+      <h4>Informations de paiement</h4>
+      <p>Méthode : {{ facture.methodePaiement }}</p>
+      <p>Coordonnées bancaires : {{ facture.coordonneesBancaires }}</p>
+      <p>Conditions : {{ facture.conditionsPaiement }}</p>
+      <p>Référence : {{ facture.referencePaiement }}</p>
+    </div>
+  </div>
+</div>
